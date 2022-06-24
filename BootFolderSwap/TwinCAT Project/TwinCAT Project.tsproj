@@ -1,0 +1,221 @@
+<?xml version="1.0"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.29" TcProjectVariant="USB_PB">
+	<Project ProjectGUID="{3F3B25E4-6B9E-4096-87D1-1C7A899325DF}" Target64Bit="true" ShowHideConfigurations="#x3c7">
+		<System>
+			<Settings MaxCpus="6" NonWinCpus="2" Packages="2">
+				<Cpu CpuId="5"/>
+			</Settings>
+			<Licenses>
+				<Target>
+					<ManualSelect>{796D380F-D49E-4C0C-A05F-500052FAC883}</ManualSelect>
+				</Target>
+			</Licenses>
+			<Tasks>
+				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
+					<Name>PlcTask</Name>
+				</Task>
+			</Tasks>
+		</System>
+		<Plc>
+			<Project File="PLC.xti"/>
+		</Plc>
+		<Io>
+			<Device Id="2" Disabled="true" DevType="57" AmsPort="28674">
+				<Name>Device 2 (USB)</Name>
+				<ProjectVariant PvUseDisable="true">
+					<Variant>
+						<Name>EC_PB</Name>
+						<Name>USB_PB</Name>
+						<Disable>1</Disable>
+					</Variant>
+				</ProjectVariant>
+				<Image Id="3" AddrType="1" ImageType="3">
+					<Name>Image</Name>
+				</Image>
+				<Box Id="10" BoxType="9591" AmsPort="28160">
+					<Name>Box 0 (CPX8XX)</Name>
+					<ImageId>88</ImageId>
+					<Vars VarGrpType="1">
+						<Name>Inputs</Name>
+						<Var>
+							<Name>PanelState</Name>
+							<Type>BITARR32</Type>
+						</Var>
+						<Var>
+							<Name>CouplerState</Name>
+							<Comment><![CDATA[0x0000 = No error
+0x0001 = Terminal bus error
+0x0002 = Configuration error]]></Comment>
+							<Type>UINT</Type>
+							<BitOffs>32</BitOffs>
+						</Var>
+						<Var>
+							<Name>BoxState</Name>
+							<Comment><![CDATA[0x0000 = No error
+0x0001 = No actual inputs
+0x0004 = Not found
+]]></Comment>
+							<Type>UINT</Type>
+							<BitOffs>64</BitOffs>
+						</Var>
+						<Var>
+							<Name>MissedCnt</Name>
+							<Comment><![CDATA[Incremented each time new
+inputs missed]]></Comment>
+							<Type>UINT</Type>
+							<BitOffs>80</BitOffs>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2">
+						<Name>Outputs</Name>
+						<Var>
+							<Name>PanelCtrl</Name>
+							<Comment><![CDATA[PanelCtrl[5] = Back Light Off
+]]></Comment>
+							<Type>BITARR32</Type>
+						</Var>
+					</Vars>
+					<BusCoupler ComplexTermSupport="true" NewHardware="true">
+						<Flags SupportVirtualTerms="true" HasNoEndTerm="true"/>
+						<Term Id="1" TermType="#x3ea" Fieldbus="9">
+							<Name>Term 1 (KL1002)</Name>
+							<ImageId>7</ImageId>
+							<Vars VarGrpType="3">
+								<Name>Channel 1</Name>
+								<Var>
+									<Name>Input</Name>
+									<Type>BIT</Type>
+									<BitOffs>48</BitOffs>
+									<InOut>0</InOut>
+								</Var>
+							</Vars>
+							<Vars VarGrpType="3">
+								<Name>Channel 2</Name>
+								<Var>
+									<Name>Input</Name>
+									<Type>BIT</Type>
+									<BitOffs>49</BitOffs>
+									<InOut>0</InOut>
+								</Var>
+							</Vars>
+						</Term>
+						<Term Id="2" TermType="#x370026ac" Fieldbus="9">
+							<Name>Term 2 (CPx9xx-8)</Name>
+							<ImageId>62</ImageId>
+							<Vars VarGrpType="3">
+								<Name>Channel 1</Name>
+								<Var>
+									<Name>Key 1</Name>
+									<Type>BIT</Type>
+									<BitOffs>50</BitOffs>
+									<InOut>0</InOut>
+								</Var>
+								<Var>
+									<Name>Key 2</Name>
+									<Type>BIT</Type>
+									<BitOffs>51</BitOffs>
+									<InOut>0</InOut>
+								</Var>
+								<Var>
+									<Name>Key 3</Name>
+									<Type>BIT</Type>
+									<BitOffs>52</BitOffs>
+									<InOut>0</InOut>
+								</Var>
+								<Var>
+									<Name>Key 4</Name>
+									<Type>BIT</Type>
+									<BitOffs>53</BitOffs>
+									<InOut>0</InOut>
+								</Var>
+								<Var>
+									<Name>Key 5</Name>
+									<Type>BIT</Type>
+									<BitOffs>54</BitOffs>
+									<InOut>0</InOut>
+								</Var>
+								<Var>
+									<Name>Key 6</Name>
+									<Type>BIT</Type>
+									<BitOffs>55</BitOffs>
+									<InOut>0</InOut>
+								</Var>
+								<Var>
+									<Name>Key 7</Name>
+									<Type>BIT</Type>
+									<BitOffs>56</BitOffs>
+									<InOut>0</InOut>
+								</Var>
+								<Var>
+									<Name>Key 8</Name>
+									<Type>BIT</Type>
+									<BitOffs>57</BitOffs>
+									<InOut>0</InOut>
+								</Var>
+								<Var>
+									<Name>LED 1</Name>
+									<Type>BIT</Type>
+									<BitOffs>32</BitOffs>
+									<InOut>1</InOut>
+								</Var>
+								<Var>
+									<Name>LED 2</Name>
+									<Type>BIT</Type>
+									<BitOffs>33</BitOffs>
+									<InOut>1</InOut>
+								</Var>
+								<Var>
+									<Name>LED 3</Name>
+									<Type>BIT</Type>
+									<BitOffs>34</BitOffs>
+									<InOut>1</InOut>
+								</Var>
+								<Var>
+									<Name>LED 4</Name>
+									<Type>BIT</Type>
+									<BitOffs>35</BitOffs>
+									<InOut>1</InOut>
+								</Var>
+								<Var>
+									<Name>LED 5</Name>
+									<Type>BIT</Type>
+									<BitOffs>36</BitOffs>
+									<InOut>1</InOut>
+								</Var>
+								<Var>
+									<Name>LED 6</Name>
+									<Type>BIT</Type>
+									<BitOffs>37</BitOffs>
+									<InOut>1</InOut>
+								</Var>
+								<Var>
+									<Name>LED 7</Name>
+									<Type>BIT</Type>
+									<BitOffs>38</BitOffs>
+									<InOut>1</InOut>
+								</Var>
+								<Var>
+									<Name>LED 8</Name>
+									<Type>BIT</Type>
+									<BitOffs>39</BitOffs>
+									<InOut>1</InOut>
+								</Var>
+							</Vars>
+						</Term>
+					</BusCoupler>
+					<Usb DeviceHandle="\\?\usb#vid_0978&amp;pid_2801#6&amp;1efc5e7a&amp;0&amp;4#{7e0092ca-e39e-4116-85d5-b32dfc26eeda}" Divider="4" AutoDivider="true"/>
+				</Box>
+				<Usb VirtualDeviceName="true"/>
+			</Device>
+			<Device File="Device 1 (EtherCAT).xti" Id="1"/>
+		</Io>
+		<Variants SpecificLocalBootFolder="true">
+			<Variant>
+				<Name>USB_PB</Name>
+			</Variant>
+			<Variant>
+				<Name>EC_PB</Name>
+			</Variant>
+		</Variants>
+	</Project>
+</TcSmProject>

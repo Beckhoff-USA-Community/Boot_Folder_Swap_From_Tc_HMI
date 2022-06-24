@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="MAIN" Id="{861dc4c8-06d7-47a9-9cfb-9c96481899b0}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	DigitalInputForPB1	AT%I*	:BOOL;
+
+	USBInputForPB1		AT%I*	:BOOL;
+
+	PushButton1					:BOOL;
+	Counter						:DINT;
+	
+	xRestartTwinCAT				:BOOL;
+	fbResetTwinCAT				:TC_Restart;
+END_VAR
+VAR CONSTANT
+	{IF defined (EC_PB)}
+		sActiveVariant				:STRING:='EC_PB';
+	{ELSIF defined (USB_PB)}
+		sActiveVariant				:STRING:='USB_PB';
+	{END_IF}	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[{IF defined (EC_PB)}
+	PushButton1:=DigitalInputForPB1;
+	Counter:=Counter+1;
+{ELSIF defined (USB_PB)}
+	PushButton1:=USBInputForPB1;
+	Counter:=Counter-1;
+{END_IF}
+
+fbResetTwinCAT(
+	NETID:='' , 
+	RESTART:=xRestartTwinCAT);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
