@@ -50,6 +50,16 @@
       "type": "Stylesheet"
     },
     {
+      "name": "CSS/CssBehind.css",
+      "description": "",
+      "type": "Stylesheet"
+    },
+    {
+      "name": "CodeBehind/SetTcState.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
       "name": "CodeBehind/TcHMIRequestEx.js",
       "description": "",
       "type": "JavaScript"
@@ -67,11 +77,21 @@
   ],
   "userFunctions": [
     {
+      "url": "CodeBehind/SetTcState.js"
+    },
+    {
       "url": "CodeBehind/TcHMIRequestEx.js"
     }
   ],
   "symbols": {
-    "internal": {}
+    "internal": {
+      "NewAdsState": {
+        "value": 2,
+        "type": "tchmi:server#/definitions/adsState",
+        "persist": false,
+        "readonly": false
+      }
+    }
   },
   "trigger": [],
   "actionTemplates": [],

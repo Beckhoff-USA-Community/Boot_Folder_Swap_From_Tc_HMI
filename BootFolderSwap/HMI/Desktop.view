@@ -2,14 +2,12 @@
   <div id="ViewDesktopBeckhoffLogo" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-src="Images/Beckhoff_Logo.svg" data-tchmi-left="20" data-tchmi-top="20" data-tchmi-width="194" data-tchmi-height="57">
 
   </div>
-<div id="TcHmiFileExplorer" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiFileExplorer" data-tchmi-height="391" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-top="237" data-tchmi-top-unit="px" data-tchmi-width="650" data-tchmi-width-unit="px" data-tchmi-root="/TwinCAT" data-tchmi-path="" data-tchmi-creator-visibility="Visible">
-</div>
-<div id="TcHmiButton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="224" data-tchmi-left-unit="px" data-tchmi-text="Load variant &quot;USB_PB&quot;" data-tchmi-top="139" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+<div id="btnLoadModel_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="181" data-tchmi-left-unit="px" data-tchmi-text="Load variant &quot;Model_1&quot;" data-tchmi-top="259" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-is-enabled="true" data-tchmi-ignore-escape-sequences="false">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "TcHmiButton.onPressed",
+    "event": "btnLoadModel_1.onPressed",
     "actions": [
       {
         "objectType": "Function",
@@ -24,7 +22,7 @@
               "writeValue": {
                 "domain": "TcHmiSrv",
                 "configuration": "default",
-                "old": "VIRTUALDIRECTORIES::/TwinCAT/Target/Resource/Variants/USB_PB/TwinCAT RT (x64)",
+                "old": "VIRTUALDIRECTORIES::/TwinCAT/Target/Resource/Variants/Model_1/TwinCAT RT (x64)",
                 "new": "VIRTUALDIRECTORIES::/TwinCAT/Boot"
               }
             }
@@ -33,14 +31,21 @@
         "asyncWait": true
       },
       {
-        "objectType": "WriteToSymbol",
+        "objectType": "Function",
         "active": true,
-        "symbolExpression": "%s%PLC1.MAIN.xRestartTwinCAT%/s%",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:general#/definitions/BOOL",
-          "value": true
-        },
+        "fn": "TcHmi.Functions.HMI.SetTcState",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:server#/definitions/adsState",
+            "value": 2
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "TcSys"
+          }
+        ],
         "asyncWait": true
       }
     ]
@@ -48,13 +53,13 @@
 ]
 </script>
 </div>
-<div id="TcHmiTextblock" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="272" data-tchmi-left-unit="px" data-tchmi-text="%f%&quot;Active Variant: &quot; + %s%PLC1.MAIN.sActiveVariant%/s%%/f%" data-tchmi-top="68" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+<div id="tbActiveVariant" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="138" data-tchmi-left-unit="px" data-tchmi-text="%f%&quot;Active Variant: &quot; + %s%PLC1.MAIN.sActiveVariant%/s%%/f%" data-tchmi-top="180" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-ignore-escape-sequences="false" data-tchmi-is-enabled="true">
 </div>
-<div id="TcHmiButton_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="357" data-tchmi-left-unit="px" data-tchmi-text="Load variant &quot;EC_PB&quot;" data-tchmi-top="139" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+<div id="btnLoadModel_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="338" data-tchmi-left-unit="px" data-tchmi-text="Load variant &quot;Model_2&quot;" data-tchmi-top="259" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-is-enabled="true" data-tchmi-ignore-escape-sequences="false">
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "TcHmiButton_1.onPressed",
+    "event": "btnLoadModel_2.onPressed",
     "actions": [
       {
         "objectType": "Function",
@@ -69,7 +74,7 @@
               "writeValue": {
                 "domain": "TcHmiSrv",
                 "configuration": "default",
-                "old": "VIRTUALDIRECTORIES::/TwinCAT/Target/Resource/Variants/EC_PB/TwinCAT RT (x64)",
+                "old": "VIRTUALDIRECTORIES::/TwinCAT/Target/Resource/Variants/Model_2/TwinCAT RT (x64)",
                 "new": "VIRTUALDIRECTORIES::/TwinCAT/Boot"
               }
             }
@@ -78,14 +83,21 @@
         "asyncWait": true
       },
       {
-        "objectType": "WriteToSymbol",
+        "objectType": "Function",
         "active": true,
-        "symbolExpression": "%s%PLC1.MAIN.xRestartTwinCAT%/s%",
-        "value": {
-          "objectType": "StaticValue",
-          "valueType": "tchmi:general#/definitions/BOOL",
-          "value": true
-        },
+        "fn": "TcHmi.Functions.HMI.SetTcState",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:server#/definitions/adsState",
+            "value": 2
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "TcSys"
+          }
+        ],
         "asyncWait": true
       }
     ]
@@ -93,6 +105,91 @@
 ]
 </script>
 </div>
-<div id="TcHmiTextblock_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="449" data-tchmi-left-unit="px" data-tchmi-text="%f%&quot;Counter: &quot; + %s%PLC1.MAIN.Counter%/s%%/f%" data-tchmi-top="68" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+<div id="tbCounter" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="315" data-tchmi-left-unit="px" data-tchmi-text="%f%&quot;Counter: &quot; + %s%PLC1.MAIN.Counter%/s%%/f%" data-tchmi-top="180" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-ignore-escape-sequences="false" data-tchmi-is-enabled="true">
+</div>
+<div id="btnSetNewTcState" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="795" data-tchmi-left-unit="px" data-tchmi-text="Set New State" data-tchmi-top="58" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-is-enabled="true" data-tchmi-ignore-escape-sequences="false">
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "btnSetNewTcState.onPressed",
+    "actions": [
+      {
+        "objectType": "JavaScript",
+        "active": false,
+        "sourceLines": [
+          "TcHmi.Server.writeSymbol(",
+          "            \"ADS.AdsSyncWriteControlReq\",",
+          "            {",
+          "                Runtime: \"TcSys\", // name of the runtime",
+          "                AdsState: \"%i%NewAdsStateTcSys%/i%\", // state of ADS --> see Infosys --> 5 = run",
+          "                DeviceState: 0, // set the device state",
+          "                WriteData: btoa(\"\") // empty write data base64 encoded",
+          "            }, console.log); // log the callback"
+        ],
+        "injectContextObject": false,
+        "asyncWait": true,
+        "waitMode": "Synchronous"
+      },
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "TcHmi.Functions.HMI.SetTcState",
+        "fnParams": [
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:server#/definitions/adsState",
+            "symbolExpression": "%ctrl%cbAdsNewState::SelectedValue%/ctrl%"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:general#/definitions/String",
+            "symbolExpression": "%ctrl%cbAdsRuntime::SelectedValue%/ctrl%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="cbAdsNewState" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCombobox" data-tchmi-combobox-text="Select" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="626" data-tchmi-left-unit="px" data-tchmi-top="102" data-tchmi-top-unit="px" data-tchmi-width="120" data-tchmi-width-unit="px" data-tchmi-allow-text-input="false" data-tchmi-is-enabled="true" data-tchmi-enum-data-symbol="%i%NewAdsState%/i%" data-tchmi-ignore-escape-sequences="false" data-tchmi-drop-down-style="Classic">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{"top":3,"right":3,"bottom":3,"left":3}
+</script>
+
+</div>
+<div id="cbAdsRuntime" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiCombobox" data-tchmi-combobox-text="" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="623" data-tchmi-left-unit="px" data-tchmi-top="58" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-allow-text-input="false" data-tchmi-is-enabled="true" data-tchmi-selected-id="0" data-tchmi-ignore-escape-sequences="false">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{"top":3,"right":3,"bottom":3,"left":3}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-src-data" type="application/json">
+[
+  {
+    "id": 1.0,
+    "text": "TcSys",
+    "value": "TcSys"
+  },
+  {
+    "id": 0.0,
+    "text": "PLC1",
+    "value": "PLC1"
+  }
+]
+</script>
+</div>
+<div id="TcHmiTextblock_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="251" data-tchmi-height-unit="px" data-tchmi-left="606" data-tchmi-left-unit="px" data-tchmi-text="Test bench for changing modes of ADS devices. \nNames &quot;TcSys&quot; and &quot;PLC1&quot; come from ADS server extension.\nTcSys = TwinCAT system service ADS port 10000\nPLC1 = PLC ADS port 851\n\nTcSys \nadsStateReset 	 	= Run mode\nadsStateReconfig	 	= Config mode\nadsStateStop	 	= Stop mode\nadsStatePowerFailure 	= Shutdown of operating system\n\nPLC1 \nadsStateStop  	= Stops execution\nadsStateReset 	= Stops execution, and resets all variables back to intial value\nadsStateRun	= Run\n\n" data-tchmi-top="211" data-tchmi-top-unit="px" data-tchmi-width="472" data-tchmi-width-unit="px" data-tchmi-word-wrap="false" data-tchmi-ignore-escape-sequences="false" data-tchmi-is-enabled="true">
+</div>
+<div id="TcHmiAdsState" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiAdsState" data-tchmi-ads-runtime="TcSys" data-tchmi-height="64" data-tchmi-height-unit="px" data-tchmi-left="661" data-tchmi-left-unit="px" data-tchmi-server-interval="100" data-tchmi-top="512" data-tchmi-top-unit="px" data-tchmi-width="64" data-tchmi-width-unit="px" data-tchmi-is-enabled="true">
+</div>
+<div id="TcHmiAdsState_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiAdsState" data-tchmi-ads-runtime="PLC1" data-tchmi-height="64" data-tchmi-height-unit="px" data-tchmi-left="804" data-tchmi-left-unit="px" data-tchmi-server-interval="100" data-tchmi-top="512" data-tchmi-top-unit="px" data-tchmi-width="64" data-tchmi-width-unit="px" data-tchmi-is-enabled="true">
+</div>
+<div id="TcHmiTextblock_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="661" data-tchmi-left-unit="px" data-tchmi-text="TcSys" data-tchmi-top="489" data-tchmi-top-unit="px" data-tchmi-width="88" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-is-enabled="true">
+</div>
+<div id="TcHmiTextblock_4" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="804" data-tchmi-left-unit="px" data-tchmi-text="PLC1" data-tchmi-top="489" data-tchmi-top-unit="px" data-tchmi-width="88" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-is-enabled="true">
+</div>
+<div id="TcHmiTextblock_5" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="105" data-tchmi-height-unit="px" data-tchmi-left="154" data-tchmi-left-unit="px" data-tchmi-text="Pressing either button will copy the contents of the \nvariant _boot folder into the TwinCAT boot folder, \nand then restart TwinCAT.\n" data-tchmi-top="319" data-tchmi-top-unit="px" data-tchmi-width="279" data-tchmi-width-unit="px" data-tchmi-word-wrap="false" data-tchmi-ignore-escape-sequences="false" data-tchmi-is-enabled="true">
 </div>
 </div>

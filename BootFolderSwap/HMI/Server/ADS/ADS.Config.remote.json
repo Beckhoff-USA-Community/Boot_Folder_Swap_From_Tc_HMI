@@ -6,6 +6,13 @@
             "PORT": 851,
             "SYMBOLS": {},
             "USE_WHITELISTING": false
+        },
+        "TcSys": {
+            "ENABLED": true,
+            "NETID": "127.0.0.1.1.1",
+            "PORT": 10000,
+            "SYMBOLS": {},
+            "USE_WHITELISTING": false
         }
     }
 }

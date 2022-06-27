@@ -8,6 +8,7 @@
                         'requestType': 'ReadWrite', 'commands': [ReqSymbol]
                     };
 
+
                     // Send request to TwinCAT HMI Server.
                     TcHmi.Server.requestEx<boolean>(request, {
                         timeout: 2000

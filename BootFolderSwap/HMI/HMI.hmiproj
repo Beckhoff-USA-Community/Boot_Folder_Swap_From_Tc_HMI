@@ -22,7 +22,7 @@
     <TargetFramework>native1.12-tchmi</TargetFramework>
     <AzureFunctionsVersion>v2</AzureFunctionsVersion>
     <Name>HMI</Name>
-    <HmiCommunicationRouterPort>10101</HmiCommunicationRouterPort>
+    <HmiCommunicationRouterPort>10103</HmiCommunicationRouterPort>
     <HmiCommunicationServerAuthPort>13000</HmiCommunicationServerAuthPort>
     <HmiInitial>1.12.756.1</HmiInitial>
     <HmiRecent>1.12.756.1</HmiRecent>
@@ -114,6 +114,7 @@
     <Folder Include="KeyboardLayouts\" />
     <Folder Include="Localization" />
     <Folder Include="CodeBehind" />
+    <Folder Include="CSS" />
     <Folder Include="Themes" />
     <Folder Include="Themes\Base-Dark\Images\" />
     <Folder Include="Themes\Base\" />
@@ -125,11 +126,21 @@
     <Content Include=".eslintrc.json">
       <Visible>false</Visible>
     </Content>
+    <Content Include="CodeBehind\SetTcState.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>CodeBehind\SetTcState.js</DependentUpon>
+    </Content>
+    <Content Include="CodeBehind\SetTcState.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="CodeBehind\TcHMIRequestEx.function.json">
       <SubType>Content</SubType>
       <DependentUpon>CodeBehind\TcHMIRequestEx.ts</DependentUpon>
     </Content>
     <Content Include="CodeBehind\TcHMIRequestEx.ts">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CSS\CssBehind.css">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Server\TcHmiLua\TcHmiLua.Config.default.json">
