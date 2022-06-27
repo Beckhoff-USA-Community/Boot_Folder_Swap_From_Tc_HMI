@@ -3,7 +3,6 @@
     "REQUIREAUTH": 2,
     "VIRTUALDIRECTORIES": {
         "/": "www",
-        "/Beckhoff.TwinCAT.HMI.EcDiagnosticsControl": "..\\..\\Packages\\Beckhoff.TwinCAT.HMI.EcDiagnosticsControl.12.756.1\\runtimes\\native1.12-tchmi",
         "/TwinCAT": "C:\\TwinCAT\\3.1\\"
     }
 }
